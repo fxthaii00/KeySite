@@ -1,0 +1,57 @@
+/* ── Keyframes ── */
+
+@keyframes pulse-glow {
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 var(--pulse-color, rgba(34,197,94,0.7)); }
+  70%  { transform: scale(1.1);  box-shadow: 0 0 0 6px transparent; }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 transparent; }
+}
+
+@keyframes rgb-pulse {
+  0%   { background-color: #ef4444; box-shadow: 0 0 5px #ef4444; }
+  33%  { background-color: #f59e0b; box-shadow: 0 0 5px #f59e0b; }
+  66%  { background-color: #8b5cf6; box-shadow: 0 0 5px #8b5cf6; }
+  100% { background-color: #ef4444; box-shadow: 0 0 5px #ef4444; }
+}
+
+@keyframes converge-center {
+  0%   { transform: scaleX(0.2); opacity: 0; }
+  50%  { transform: scaleX(1);   opacity: 1; }
+  100% { transform: scaleX(0.2); opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Utility animation classes ── */
+
+.anim-fade-in {
+  animation: fade-in var(--transition-normal) both;
+}
+
+.anim-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.anim-rgb-pulse {
+  animation: rgb-pulse 4s infinite linear;
+}
+
+.anim-spin {
+  animation: spin 1s linear infinite;
+}

@@ -1,0 +1,70 @@
+:root {
+  /* Colors */
+  --color-bg:        #070709;
+  --color-bg2:       #0c0c10;
+  --color-bg3:       #111116;
+  --color-surface:   rgba(10, 9, 16, 0.9);
+
+  --color-border:    rgba(90, 20, 160, 0.22);
+  --color-border-md: rgba(90, 20, 160, 0.45);
+
+  --color-purple:    #7020c0;
+  --color-purple-h:  #9940e8;
+  --color-accent:    #a855f7;
+
+  --color-text:      #edeaf5;
+  --color-muted:     #38284e;
+  --color-mid:       #7a6a90;
+
+  --color-green:     #22c55e;
+  --color-red:       #e05060;
+  --color-yellow:    #eab308;
+  --color-cyan:      #40c8d0;
+
+  /* Typography */
+  --font-primary: 'Myriad Pro', 'Myriad Apple', -apple-system, 'Exo 2', sans-serif;
+  --font-mono:    'Share Tech Mono', monospace;
+
+  --font-size-xs:   10px;
+  --font-size-sm:   12px;
+  --font-size-base: 14px;
+  --font-size-md:   16px;
+  --font-size-lg:   20px;
+  --font-size-xl:   28px;
+  --font-size-2xl:  36px;
+
+  /* Spacing */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  28px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Radius */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow:   0.4s ease;
+
+  /* Shadows */
+  --shadow-glow:    0 0 40px rgba(100, 20, 200, 0.18);
+  --shadow-card:    0 4px 24px rgba(0, 0, 0, 0.4);
+
+  /* Nav */
+  --nav-height: 57px;
+
+  /* Breakpoints (used in JS too) */
+  --bp-mobile:  480px;
+  --bp-tablet:  768px;
+  --bp-desktop: 1024px;
+}

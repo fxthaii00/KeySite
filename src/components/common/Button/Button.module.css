@@ -1,0 +1,101 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Sizes ── */
+.btn--sm  { padding: 4px 10px;  font-size: var(--font-size-xs);   letter-spacing: 0.3px; }
+.btn--md  { padding: 8px 16px;  font-size: var(--font-size-sm);   letter-spacing: 0.5px; }
+.btn--lg  { padding: 13px 24px; font-size: var(--font-size-base);  letter-spacing: 1px;   text-transform: uppercase; }
+
+/* ── Full width ── */
+.btn--full { width: 100%; }
+
+/* ── Variants ── */
+.btn--primary {
+  background: var(--color-purple);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--color-purple-h); transform: translateY(-1px); }
+.btn--primary:active { transform: translateY(0); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-mid);
+  border: 1px solid var(--color-border);
+}
+.btn--outline:hover { border-color: var(--color-purple); color: var(--color-accent); }
+
+.btn--danger {
+  background: rgba(224, 80, 96, 0.12);
+  color: var(--color-red);
+  border: 1px solid rgba(224, 80, 96, 0.25);
+}
+.btn--danger:hover { background: rgba(224, 80, 96, 0.22); }
+
+.btn--success {
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--color-green);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+.btn--success:hover { background: rgba(34, 197, 94, 0.22); }
+
+.btn--warning {
+  background: rgba(234, 179, 8, 0.12);
+  color: var(--color-yellow);
+  border: 1px solid rgba(234, 179, 8, 0.25);
+}
+.btn--warning:hover { background: rgba(234, 179, 8, 0.22); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-mid);
+  border: none;
+}
+.btn--ghost:hover { color: var(--color-text); }
+
+/* ── Gen Key special button ── */
+.btn--genkey {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, #5a12a0 0%, #7c28c8 40%, #9b40e8 70%, #b060ff 100%);
+  position: relative;
+  overflow: hidden;
+  transition: filter var(--transition-fast), transform 0.1s;
+}
+.btn--genkey::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 28%, rgba(255,255,255,0.08) 50%, transparent 72%);
+  transform: translateX(-100%);
+  transition: transform 0.55s;
+}
+.btn--genkey:hover::after { transform: translateX(100%); }
+.btn--genkey:hover        { filter: brightness(1.12); transform: translateY(-1px); }
+.btn--genkey:active       { transform: translateY(0); }
+.btn--genkey:disabled     { opacity: 0.5; pointer-events: none; }

@@ -1,0 +1,103 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ── Main content ── */
+.main {
+  margin-left: 240px;
+  flex: 1;
+  padding: 28px;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+/* ── Loading ── */
+.loadingScreen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(120, 40, 200, 0.2);
+  border-top-color: var(--color-purple);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ── Mobile top bar ── */
+.mobileTopBar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  background: var(--color-bg2);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 70;
+  align-items: center;
+  padding: 0 16px;
+  gap: 14px;
+}
+
+.burgerBtn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-mid);
+  border-radius: var(--radius-sm);
+  width: 34px;
+  height: 34px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.burgerBtn:hover { color: var(--color-text); }
+
+.mobileBrand {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.mobileBrand em {
+  color: var(--color-accent);
+  font-style: normal;
+}
+
+.mobilePage {
+  margin-left: auto;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ══════════ RESPONSIVE ══════════ */
+@media (max-width: 900px) {
+  .main {
+    margin-left: 0;
+    padding: 72px 16px 24px; /* top padding accounts for mobile bar */
+  }
+
+  .mobileTopBar {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 66px 12px 20px;
+  }
+}
