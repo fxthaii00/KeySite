@@ -1,16 +1,96 @@
+/* ══════════════════════════════════════
+   DASHBOARD LAYOUT — Unkie-style
+══════════════════════════════════════ */
+
 .app {
   display: flex;
   min-height: 100vh;
-  background: var(--color-bg);
+  background: #0d0f14;
+  /* dot grid background */
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
+
+/* ── Top bar ── */
+.topBar {
+  position: fixed;
+  top: 0;
+  left: 220px;
+  right: 0;
+  height: 52px;
+  background: rgba(13,15,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 8px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.breadcrumbSep { color: #2d3748; }
+
+.breadcrumbCurrent {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.topBarRight {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topBarBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 7px;
+  color: #9ca3af;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.topBarBtn:hover { background: rgba(255,255,255,0.06); color: #e2e8f0; }
+
+.topBarDiscord {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(88,101,242,0.12);
+  border: 1px solid rgba(88,101,242,0.25);
+  border-radius: 7px;
+  color: #818cf8;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.topBarDiscord:hover { background: rgba(88,101,242,0.22); }
 
 /* ── Main content ── */
 .main {
-  margin-left: 240px;
+  margin-left: 220px;
   flex: 1;
-  padding: 28px;
+  padding: 80px 28px 40px;
   min-height: 100vh;
-  background: var(--color-bg);
 }
 
 /* ── Loading ── */
@@ -20,14 +100,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg);
+  background: #0d0f14;
 }
 
 .spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid rgba(120, 40, 200, 0.2);
-  border-top-color: var(--color-purple);
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(99,102,241,0.2);
+  border-top-color: #6366f1;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -40,19 +120,19 @@
   left: 0;
   right: 0;
   height: 52px;
-  background: var(--color-bg2);
-  border-bottom: 1px solid var(--color-border);
+  background: #111318;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   z-index: 70;
   align-items: center;
   padding: 0 16px;
-  gap: 14px;
+  gap: 12px;
 }
 
 .burgerBtn {
   background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-mid);
-  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #6b7280;
+  border-radius: 7px;
   width: 34px;
   height: 34px;
   font-size: 16px;
@@ -60,44 +140,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color var(--transition-fast);
   flex-shrink: 0;
 }
 
-.burgerBtn:hover { color: var(--color-text); }
-
 .mobileBrand {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-}
-
-.mobileBrand em {
-  color: var(--color-accent);
-  font-style: normal;
+  color: #e2e8f0;
 }
 
 .mobilePage {
   margin-left: auto;
   font-size: 11px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: #4b5563;
 }
 
-/* ══════════ RESPONSIVE ══════════ */
+/* ── Responsive ── */
 @media (max-width: 900px) {
-  .main {
-    margin-left: 0;
-    padding: 72px 16px 24px; /* top padding accounts for mobile bar */
-  }
-
-  .mobileTopBar {
-    display: flex;
-  }
+  .main    { margin-left: 0; padding: 68px 16px 32px; }
+  .topBar  { left: 0; padding: 0 16px; display: none; }
+  .mobileTopBar { display: flex; }
 }
 
 @media (max-width: 480px) {
-  .main {
-    padding: 66px 12px 20px;
-  }
+  .main { padding: 62px 12px 24px; }
 }

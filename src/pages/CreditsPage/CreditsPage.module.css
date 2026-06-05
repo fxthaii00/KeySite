@@ -69,12 +69,6 @@
   gap: 7px;
 }
 
-.roleIcon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
 .visitLink {
   color: var(--color-accent);
   font-size: 13px;

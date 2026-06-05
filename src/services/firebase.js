@@ -1,7 +1,6 @@
 /**
  * Firebase service — initializes app & exports db/auth singletons.
  * All Firestore / Auth interactions go through dedicated service modules.
- * Les clés sont lues depuis les variables d'environnement (jamais hardcodées).
  */
 
 import { initializeApp } from 'firebase/app';
@@ -9,13 +8,13 @@ import { getFirestore }  from 'firebase/firestore';
 import { getAuth }       from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain:        import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId:         import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket:     import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId:             import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId:     import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+  apiKey:            'AIzaSyBEyeZcDz3tWqGIir3mStSrtfkjzceRxpM',
+  authDomain:        'keydb-231f4.firebaseapp.com',
+  projectId:         'keydb-231f4',
+  storageBucket:     'keydb-231f4.firebasestorage.app',
+  messagingSenderId: '788903370664',
+  appId:             '1:788903370664:web:088688d3057d584ce7479d',
+  measurementId:     'G-G7M84FSJV2',
 };
 
 const app = initializeApp(firebaseConfig);

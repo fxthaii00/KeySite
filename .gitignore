@@ -22,9 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Variables d'environnement — NE JAMAIS commit ces fichiers !
-.env
-.env.local
-.env.production
-.env.development

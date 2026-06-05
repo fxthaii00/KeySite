@@ -41,11 +41,11 @@ export const AUTH_ERRORS = {
 
 /** Key duration options. */
 export const KEY_TYPES = [
-  { value: 'lifetime', label: 'Lifetime' },
-  { value: '30days',   label: '30 Jours' },
-  { value: '7days',    label: '7 Jours'  },
-  { value: '1day',     label: '1 Jour'   },
-  { value: 'beta',     label: 'Beta (30j)' },
+  { value: 'lifetime', label: '♾ Lifetime' },
+  { value: '30days',   label: '📅 30 Jours' },
+  { value: '7days',    label: '📅 7 Jours'  },
+  { value: '1day',     label: '📅 1 Jour'   },
+  { value: 'beta',     label: '🧪 Beta (30j)' },
 ];
 
 /** Nav links shared across public pages. */

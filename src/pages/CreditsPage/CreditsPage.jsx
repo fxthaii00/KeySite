@@ -2,21 +2,18 @@ import PageLayout from '../../components/layout/PageLayout';
 import Panel      from '../../components/ui/Panel';
 import Avatar     from '../../components/common/Avatar';
 import LizardLogo from '../../assets/icons/LizardLogo';
-import RobuxLogo from '../../assets/icons/RobuxLogo.png';
-import DonLogo from '../../assets/icons/DonLogo.png';
-import { useDonations } from '../../hooks/useDonations';
 import styles from './CreditsPage.module.css';
 
 const CONTRIBUTORS = [
-  { name: 'FXTHai', role: 'Lead Developer', avatar: '', link: '#', roleIcon: DonLogo },
-  { name: 'Dev2',   role: 'UI Designer',    avatar: '', link: '#', roleIcon: RobuxLogo },
+  { name: 'FXTHai', role: 'Lead Developer', avatar: '', link: '#' },
+  { name: 'Dev2',   role: 'UI Designer',    avatar: '', link: '#' },
   { name: 'Dev3',   role: 'Backend',        avatar: '', link: '#' },
   { name: 'Dev4',   role: 'Script Writer',  avatar: '', link: '#' },
   { name: 'Dev5',   role: 'Security',       avatar: '', link: '#' },
   { name: 'Dev6',   role: 'Tester',         avatar: '', link: '#' },
 ];
 
-const DUMMY_TOP_DONATORS = [
+const TOP_DONATORS = [
   { username: 'User1', amount: '$50.00', platform: 'PayPal' },
   { username: 'User2', amount: '$40.00', platform: 'Stripe' },
   { username: 'User3', amount: '$30.00', platform: 'Crypto' },
@@ -24,35 +21,14 @@ const DUMMY_TOP_DONATORS = [
   { username: 'User5', amount: '$15.00', platform: 'Stripe' },
 ];
 
-const DUMMY_ROBUX_DONATORS = [
+const ROBUX_DONATORS = [
   { username: 'RbxUser1', amount: '5 000 R$' },
   { username: 'RbxUser2', amount: '3 000 R$' },
   { username: 'RbxUser3', amount: '1 500 R$' },
   { username: 'RbxUser4', amount: '500 R$'   },
 ];
 
-function isRobuxDonation(donation) {
-  const type = String(donation.type || donation.currency || '').toLowerCase();
-  const amount = String(donation.amount || '').toLowerCase();
-  return type.includes('robux') || type.includes('r$') || amount.includes('r$');
-}
-
-function formatAmount(amount) {
-  if (typeof amount === 'number') return amount.toLocaleString();
-  return amount || '0';
-}
-
 export default function CreditsPage() {
-  const { donations } = useDonations();
-
-  const robuxDonators = donations.length
-    ? donations.filter(isRobuxDonation)
-    : DUMMY_ROBUX_DONATORS;
-
-  const topDonators = donations.length
-    ? donations.filter(d => !isRobuxDonation(d))
-    : DUMMY_TOP_DONATORS;
-
   return (
     <PageLayout>
       <main className={styles.main}>
@@ -79,9 +55,7 @@ export default function CreditsPage() {
                     <td className={styles.nameCell}>{c.name}</td>
                     <td>
                       <div className={styles.roleCell}>
-                        {c.roleIcon
-                          ? <img src={c.roleIcon} alt={c.role} className={styles.roleIcon} />
-                          : <LizardLogo size={16} variant="purple" />}
+                        <LizardLogo size={16} variant="purple" />
                         {c.role}
                       </div>
                     </td>
@@ -97,22 +71,19 @@ export default function CreditsPage() {
 
         <div className={styles.twoCol}>
           {/* Top donators */}
-          <Panel
-            title="Top Donators"
-            variant="donation"
-          >         
+          <Panel title="Top Donators">
             <div className={styles.tblWrap}>
               <table className={styles.tbl}>
                 <thead><tr><th>Username</th><th>Amount</th><th>Platform</th></tr></thead>
                 <tbody>
-                  {topDonators.map(d => (
+                  {TOP_DONATORS.map(d => (
                     <tr key={d.username}>
                       <td className={styles.nameCell}>{d.username}</td>
-                      <td><span className={styles.amtBadge}>{formatAmount(d.amount)}</span></td>
+                      <td><span className={styles.amtBadge}>{d.amount}</span></td>
                       <td>
                         <div className={styles.platBadge}>
                           <LizardLogo size={12} variant="purple" />
-                          {d.platform || d.method || 'N/A'}
+                          {d.platform}
                         </div>
                       </td>
                     </tr>
@@ -123,21 +94,18 @@ export default function CreditsPage() {
           </Panel>
 
           {/* Robux donators */}
-          <Panel
-            title="Robux Donators"
-            variant="robux"
-          >
+          <Panel title="Robux Donators">
             <div className={styles.tblWrap}>
               <table className={styles.tbl}>
                 <thead><tr><th>Username</th><th style={{ textAlign:'right' }}>Amount</th></tr></thead>
                 <tbody>
-                  {robuxDonators.map(r => (
+                  {ROBUX_DONATORS.map(r => (
                     <tr key={r.username}>
                       <td className={styles.nameCell}>{r.username}</td>
                       <td style={{ textAlign: 'right' }}>
                         <div className={styles.robuxCell}>
-                          <img src={RobuxLogo} alt="Robux" style={{ width: 18, height: 18 }} />
-                          <span className={styles.amtBadge}>{formatAmount(r.amount)}</span>
+                          <LizardLogo size={16} variant="purple" />
+                          <span className={styles.amtBadge}>{r.amount}</span>
                           <span className={styles.robuxLabel}>Robux</span>
                         </div>
                       </td>
